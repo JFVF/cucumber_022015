@@ -16,7 +16,8 @@ puts result = "Result = #{firstNumber + defaultValue}"
 def wellcome (name = "", age = 0)
 months = 12
 days = 30
-converted = age * months * days
+hours = 24
+converted = age * months * days * hours
 puts "\nHI #{name.upcase}"
 puts "Your #{age} years is equals to #{converted} hours"
 	end
@@ -27,12 +28,40 @@ wellcome "ruben", 25
 def transformCelsius(celsius = 1.1)
 fahrenheit = (((9* celsius ) /5) + 32)
 return fahrenheit.to_s+" fahrenheit"
-	end
+end
 
 puts transformCelsius 37.5
 
 def transformfahrenheit(fahrenheit = 1.1)
 ((5*(fahrenheit - 32))/9).to_s+" celsius"
-	end
+end
 
 puts transformfahrenheit 98
+
+def getPassengerInformation(passengerName = "", destinationCity = "", tickedPrice = 0.0)
+dolarValue = 6.97
+	if destinationCity.length == 0
+		destinationCity = "CBBA"
+    end
+	
+convertedTickedPrice = tickedPrice / dolarValue
+puts "\n Name: #{passengerName}\n Destination City: #{destinationCity}\n Price: #{convertedTickedPrice} $"
+end
+
+getPassengerInformation "Ruben","", 790
+
+############################################################
+puts "type seconds"
+secondValue = gets.chomp
+
+
+def calculate (seconds = 0)
+ hour = 60
+ minute = 60
+ calculatedHours = seconds.to_i/(hour*minute)
+ calculatedMinutes = seconds.to_i/60
+ return calculatedHours, calculatedMinutes 
+end
+
+#call calculate method
+puts "\n#{calculate secondValue}"
