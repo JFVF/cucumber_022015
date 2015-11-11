@@ -38,20 +38,28 @@ end
 
 puts transformfahrenheit 98
 
-def getPassengerInformation(passengerName = "", destinationCity = "", tickedPrice = 0.0)
+
+
+puts "\ntype passenger name"
+name = gets.chomp.to_s
+puts "type destination city"
+destination = gets.chomp.to_s
+puts "type ticket price"
+price = gets.chomp.to_f
+def getPassengerInformation(passengerName = "", destinationCity = "", ticketPrice = 0.0)
 dolarValue = 6.97
 	if destinationCity.length == 0
 		destinationCity = "CBBA"
     end
 	
-convertedTickedPrice = tickedPrice / dolarValue
+convertedTickedPrice = ticketPrice / dolarValue
 puts "\n Name: #{passengerName}\n Destination City: #{destinationCity}\n Price: #{convertedTickedPrice} $"
 end
 
-getPassengerInformation "Ruben","", 790
+getPassengerInformation name,destination, price
 
 ############################################################
-puts "type seconds"
+puts "\ntype seconds"
 secondValue = gets.chomp
 
 
