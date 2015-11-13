@@ -3,6 +3,7 @@ names = gets.chomp
 puts "hello #{names} how are yo today"
 
 =begin
+commented code
 "Some Test".chomp(' Test')
 "Some Test\r\n".chomp
 "\tRobert Martin\r\n".strip
@@ -12,7 +13,6 @@ puts "give me a number"
 firstNumber = gets.chomp.to_f
 defaultValue = 20
 puts result = "Result = #{firstNumber + defaultValue}"
-
 def wellcome (name = "", age = 0)
 months = 12
 days = 30
@@ -39,7 +39,6 @@ end
 puts transformfahrenheit 98
 
 
-
 puts "\ntype passenger name"
 name = gets.chomp.to_s
 puts "type destination city"
@@ -58,11 +57,8 @@ end
 
 getPassengerInformation name,destination, price
 
-############################################################
 puts "\ntype seconds"
 secondValue = gets.chomp
-
-
 def calculate (seconds = 0)
  hour = 60
  minute = 60
