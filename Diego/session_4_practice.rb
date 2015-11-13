@@ -26,28 +26,28 @@ Hello.fifth
 Hello.sixth
 
 module Bye
-   def bye
+   def Bye.bye
       puts "Bye"
    end
-   def later
+   def Bye.later
       puts "See you later"
    end
-   def there
+   def Bye.there
       puts "See you there"
    end
-   def take
+   def Bye.take
       puts "take care"
    end
-   def good
+   def Bye.good
       puts "good bye"
    end
    
 end
-puts bye
-#second
-#Bye.third
-#Bye.fourth
-#Bye.fifth
+puts Bye.bye
+Bye.later
+Bye.take
+Bye.there
+Bye.good
 
 
 class Greets
