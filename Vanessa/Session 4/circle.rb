@@ -12,12 +12,18 @@ Call to the methods in order to see the result printed
 =end
 
 class Circle
-	PI = 3.1416
 	def area(radius)
-		formula = radius * 2 * PI
+		puts formula = radius * 2 * Math::PI
 	end
 
 	def perimeter(radius)
-		formula = radius * radius * PI
+		puts formula = radius * radius * Math::PI
 	end
 end
+
+circle = Circle.new
+radius = 5
+puts "Area of a circle with radio #{radius}"
+circle.area(radius)
+puts "Perimeter of a circle with radio #{radius}"
+circle.perimeter(radius)

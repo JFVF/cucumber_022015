@@ -1,10 +1,10 @@
 require './greetings'
 require './farewells'
 
-class GreetBye
-	include Greetings
-	include Farewells
-end
+# class GreetBye
+# 	include Greetings
+# 	include Farewells
+# end
 
 Greetings.how_was_your_day
 Greetings.how_have_you_been
