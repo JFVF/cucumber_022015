@@ -16,36 +16,22 @@ end
 puts  Father.money
 
 class Child_ana < Father
-<<<<<<< HEAD
-  take_money=30
-  puts "taking #{take_money}..father has #{@@father_money}"
-=======
+
   take_money=rand(1 .. 40) 
-  puts "taking #{take_money}"
->>>>>>> e848b983acb9ff4cd72d51fafaa582e07d2961a8
+  puts "taking #{take_money}..father has #{@@father_money}"
   @@father_money = @@father_money - take_money
 end
 
 class Child_Pedro < Father
-<<<<<<< HEAD
-  take_money=50
-  puts "taking #{take_money} ..father has #{@@father_money}"
-=======
   take_money=rand(1 .. 30) 
-  puts "taking #{take_money}"
->>>>>>> e848b983acb9ff4cd72d51fafaa582e07d2961a8
+  puts "taking #{take_money}..father has #{@@father_money}" 
   @@father_money = @@father_money - take_money
 
 end
 
 class Child_Juan < Father
-<<<<<<< HEAD
-  take_money=10
+  take_money=rand(1 .. 30)
   puts "taking #{take_money}..father has #{@@father_money}"	
-=======
-  take_money=rand(1 .. 30) 
-  puts "taking #{take_money}"
->>>>>>> e848b983acb9ff4cd72d51fafaa582e07d2961a8
   @@father_money = @@father_money - take_money
 
 end
