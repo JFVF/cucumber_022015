@@ -11,25 +11,26 @@ class Father
 	def self.money 
       @@father_money      
    end
+   
 end
 puts Father.money
 
 class Child_ana < Father
-  take_money=30
+  take_money=rand(1 .. 40) 
   puts "taking #{take_money}"
   @@father_money = @@father_money - take_money
 end
 
 class Child_Pedro < Father
-  take_money=50
+  take_money=rand(1 .. 30) 
   puts "taking #{take_money}"
   @@father_money = @@father_money - take_money
 
 end
 
 class Child_Juan < Father
-  take_money=10
-  puts "taking #{take_money}"	
+  take_money=rand(1 .. 30) 
+  puts "taking #{take_money}"
   @@father_money = @@father_money - take_money
 
 end
