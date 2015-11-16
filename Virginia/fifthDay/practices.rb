@@ -11,4 +11,5 @@ end
 
 person = Person.new()
 person.person_name="Virginia"
-puts person.greets + person.message=" Have a nice day." 
+msg = person.message=" Have a nice day." 
+puts person.greets + msg 
