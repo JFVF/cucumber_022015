@@ -1,33 +1,4 @@
 #Control Statements 
-=begin
-		puts result = @age == 1 ? "You are a baby, total age in hours #{calculateAgeInHours}" :
-					  @age == 6 ? "You are a child, total age in hours #{calculateAgeInHours}":
-					  @age == 13 ? "You are a young people, total age in hours #{calculateAgeInHours}":
-					  @age == 22 ? "You are a adult people, total age in hours #{calculateAgeInHours}":
-					  calculateAgeInHours end
-=end
-					 
-
-
-=begin
-	case @age
-			when 0..5
-				puts "You are a baby, total age in hours #{getHours}"
-			when 6..12
-				puts "You are a child, total age in hours #{getHours}"
-			when 13..21
-				puts "You are a young people, total age in hours #{getHours}"
-			when 22..35
-				puts "You are a adult, total age in hours #{getHours}"
-			when @age > 35
-				puts "The age cannot be calculated in hours! Too, many hours..."
-			else
-				"invalid age entered"
-		end			
-=end
-
-
-
 
 class AgeCalculator
 	attr_reader:name, :age
