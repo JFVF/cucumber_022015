@@ -21,7 +21,7 @@ class Regular
 		loop do 
 			puts 'Give me your email'
 			email=gets.chomp.to_s
-			break if email=~ /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/	
+			break if email=~ /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})?$/	
 		end	
 	end
 end
