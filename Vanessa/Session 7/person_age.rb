@@ -12,7 +12,42 @@ otherwise return a message that age cannot be calculated
 =end
 
 class PersonAge
-	attr_reader :hash_created
+	attr_accessor :name, :age
+
+	def create
+		puts 'Insert the name:'
+		@name = gets.chomp.to_s
+
+		puts 'Insert the age:'
+		@age = gets.chomp.to_i
+	end
+
+	def convert_to_hours(age)
+		year_in_hours = nil
+		(age <= 35)? year_in_hours = age * 365 * 24 : year_in_hours = 'Years in hours cannot be calculated'
+		
+		year_in_hours 
+	end
+
+	def determinate_age(name, age)
+		case age
+		when 0..convert_to_hours(5)
+			puts "#{name}, you are a baby"
+		when convert_to_hours(6)..convert_to_hours(12)
+			puts "#{name}, you are a child"
+		when convert_to_hours(13)..convert_to_hours(21)
+			puts "#{name}, you are a young person"
+		when convert_to_hours(22)..convert_to_hours(35)
+			puts "#{name}, you are an adult"
+		else
+			puts age
+		end
+	end
 end
 
+person = PersonAge.new
+person.create
 
+year_in_hours = person.convert_to_hours(person.age)
+
+person.determinate_age(person.name, year_in_hours)
