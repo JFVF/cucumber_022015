@@ -1,12 +1,9 @@
 #singleton_practice 
 #class with singleton
-#The different between with/out singleton is
-# Without Singleton always a new instance is created and the Hash will have just one element every time 
-# that a new user is added
-# ......
-# With singleton only one instance is handled, this means that every time a user is added the has will increase in one
-
-
+#The different between with/out singleton is that I could see
+# the instantiation creates an instance that it is return by the method in my case singleton_user_handler
+# and in the singleton the Singleton handles only one instance of the User_Handler 
+# 
 
 
 
