@@ -27,15 +27,15 @@ class PersonDetail
 	end
 
 	def is_username_valid
-		return /[a-z0-9_]/.match(@username) !=nil
+		return /[a-z0-9_]+/.match(@username) !=nil
 	end
 
 	def is_password_valid
-		return /[a-z0-9A-Z]{8,16}/.match(@password) !=nil
+		return /[a-z0-9A-Z]+{8,16}/.match(@password) !=nil
 	end
 
 	def is_email_valid
-		return /[a-z]+\@[a-z]+\.[a-z]/.match(@email) !=nil
+		return /[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]{2,}/.match(@email) !=nil
 	end
 
 
@@ -51,8 +51,8 @@ end
 
 
 pDetail = PersonDetail.new
-#pDetail.enter_username
-#pDetail.enter_password
+pDetail.enter_username
+pDetail.enter_password
 pDetail.enter_email
 
 pDetail.printDetails
