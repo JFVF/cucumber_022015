@@ -11,7 +11,7 @@ class My_arry
 		var_item=gets.chomp
 		ary.push var_item
 	end
-	p ary
+	return ary
   end
   def print_arry(newarry)
   	puts 'Printing your arry'
@@ -26,4 +26,4 @@ class My_arry
 end
 noe_arry = My_arry.new
 newarry= noe_arry.drawn_arry
-noe_arry.print_arry(newarry)
+noe_arry.print_arry newarry 

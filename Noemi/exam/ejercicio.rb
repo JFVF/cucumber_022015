@@ -5,7 +5,7 @@ date 11/25/2015
 
 module Tine_conver
 	def Tine_conver.min_to_hours min_t 
-		puts " #{min_t} min in hours is : #{min_t * 60}"
+		puts " #{min_t} min in hours is : #{min_t / 60}"
 	end	
 	def Tine_conver.hour_to_days hour_t
 		puts " #{hour_t} hours in days is : #{hour_t / 24}"
