@@ -28,7 +28,7 @@ class RegExpManager
 	end
 
 	def ask_for_email(email)
-		if email =~ /^[a-z]+@[a-z]{3,}\.[a-z]{2,4}?(\.[a-z]{2,3})?$/  # 
+		if email =~ /^[a-z]+@[a-z]{3,}\.[a-z]{2,4}?(\.[a-z]{2,3})?$/ 
 			@email = email
 		else
 			@email = 'Error! - Characters allowed are .com or .bo -'
