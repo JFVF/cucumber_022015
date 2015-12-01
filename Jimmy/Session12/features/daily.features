@@ -15,7 +15,7 @@ Then the teacher is at the door waiting for students
 	And the teacher ask my children to pass to the kindergarten
 
 
-Scenario: Preparing my kid lunches
+Scenario: Preparing my kid lunch
 Given I have the lunch bag of my kid empty
 When I prepared small sandwich
 	And I prepared juice in his small bottle 
