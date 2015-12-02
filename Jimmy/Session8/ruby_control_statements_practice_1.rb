@@ -52,5 +52,6 @@ pRegistrator.registerPeople
 puts ""
 people = pRegistrator.transformName
 puts "Printing an array of people names: "
+
 pRegistrator.sayGoodBye people
 
