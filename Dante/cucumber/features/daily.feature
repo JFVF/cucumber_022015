@@ -15,7 +15,9 @@ Scenario: Go to work
     
 
 Scenario: cooking breakfast
-    Given 
-    and 
-    When I try to edit an existing user to change the name
-    Then the new name should be updated and listed.
+    Given it is breakfast time
+    and family should have breakfast
+    When go to the kitchen
+    and cook the breakfast
+    and serve the table
+    Then breakfast should be ready.
