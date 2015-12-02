@@ -6,7 +6,7 @@ Given I went to home page
 When I navigate to project page
  	And I click on Create Project button
  	And I fill project name "project1"
-Then I should see the project "project1" listed 
+Then I should see the project "project1" listed in project page 
 
 Scenario: Edit a project
 Given I went to home page
