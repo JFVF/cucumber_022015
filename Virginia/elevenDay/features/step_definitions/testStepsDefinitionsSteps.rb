@@ -11,14 +11,14 @@ Given(/^I receive \$(100|250) in my Account$/) do |arg1|
 end
 
 
-Given(/^I have sent \$(\d+) to A account$/) do |arg1|
+Given(/^I have sent (\$[0-9]*) to A account$/) do |arg1|
   #TODO only digites
 end
 
-Given(/^I have sent \$(\d+) my name$/) do |arg1|
+Given(/^I have sent ([a-z]+) my name$/) do |arg1|
   #TODO only lowercase
 end
 
-Given(/^I have sent \$(\D+) my last name$/) do |arg1|
+Given(/^I have sent (\D+) my last name$/) do |arg1|
   #TODO any character - digiste
 end
