@@ -10,24 +10,22 @@ another with the amount of money to pay and the type of payment(credit card,
 money,etc)and some final step that can be described with different words. 
 =end
 
-Given(/^I have to eat "(\d+)" "([a-z]+)"$/) do |number, fruit|
+Given(/^I have to eat "(\d+)" "([a-z]+)?"$/) do |number, fruit|
 	puts "Fruit: #{fruit}"
 	puts "Quantity: #{number}"
 end
 
-
-Given(/^I want to buy "(\d+)" computers$/) do |arg1|
-	puts "Computer: #{arg1}"
+Given(/^I want to buy (\d+) computers$/) do |items|
+	puts "Computer: #{items}"
 end
 
-Given(/^the payment is done using (\w+)$/) do |type|
-	puts type
+Given(/^the payment is done using ([a-z\-]+)$/) do |type|
+	puts "Payment type: #{type}"
 end
 
-When(/^I give the \$(\d+)$/) do
-	puts 'Giving money'
+When(/^I give the \$(\d+)$/) do |money|
+	puts "Money given: #{given}"
 end
 
 Then(/^I want to receive the (?:invoice|bill)$/) do
-	puts 'Bill'
 end
