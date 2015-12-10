@@ -1,5 +1,6 @@
 Given(/^a board like this:$/) do |table|
   @board = table.raw
+  p @board
 end
 
 When(/^player x plays in row (\d+), column (\d+)$/) do |arg1, arg2|
