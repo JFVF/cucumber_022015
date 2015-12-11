@@ -10,13 +10,13 @@ module Rest_service
   # This method set up a connection 
   #
   def Rest_service.get_connection
-      http_connection = nil
-      http_connection = Net::HTTP.new($app_host)      
-      http_connection.read_timeout = HTTP_TIMEOUT_FOR_RESPONSE
-      return http_connection
+      $http_connection = nil
+      $http_connection = Net::HTTP.new($app_host)      
+      $http_connection.read_timeout = HTTP_TIMEOUT_FOR_RESPONSE
+      return $http_connection
   end
 
-def Rest_service.get_request(method, url)
+def Rest_service.get_request(method,url)
     request = nil   
     url =  $app_root + url
    
@@ -38,8 +38,8 @@ def Rest_service.get_request(method, url)
   end
 
 # Finally let’s execute the request:
-def Rest_service.execute_request(http_connection, http_request)
-    http_response = http_connection.request(http_request)
+def Rest_service.execute_request(http_connection,http_request)
+    http_response = $http_connection.request(http_request)
     return http_response
   end
 
