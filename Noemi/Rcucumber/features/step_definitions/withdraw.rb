@@ -8,6 +8,7 @@ end
 When(/^I choose to withdraw the fixed amount of \$(\d+)$/) do |withdraw|
    #Juts keep the value inserted
     @money= withdraw
+    puts $app_root
 end
 
 Then(/^I should receive \$(\d+) cash$/) do |cash|
