@@ -7,22 +7,22 @@ Given I am ready to go to work
 	And my children are ready to go to the kindergaten
 	But I am not in the kidergarten
 	But my children are not in the kindergarten
-When I started walking to the kindergarten
-	And my kids started walking to the kindergarten
-	And I reached the kindergarten
-	And my children reached the kindergarten
+When I start walking to the kindergarten
+	And my kids start walking to the kindergarten
+	And I reach the kindergarten
+	And my children reach the kindergarten
 Then the teacher is at the door waiting for students
 	And the teacher ask my children to pass to the kindergarten
 
 
 Scenario: Preparing my kid lunch
 Given I have the lunch bag of my kid empty
-When I prepared small sandwich
-	And I prepared juice in his small bottle 
+When I prepar small sandwich
+	And I prepare juice in his small bottle 
 	But they are not inside of his lunch bag
 When I put the small sandwich inside of his lunch bag
 	And I put the bottle of juice inside of their lunch bag
-	And I closed his lunch bag
+	And I close his lunch bag
 Then the lunch bag is heavier
 	And the lunch bag is closed
 
