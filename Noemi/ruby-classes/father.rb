@@ -13,24 +13,25 @@ class Father
    end
    
 end
-puts Father.money
+puts  Father.money
 
 class Child_ana < Father
+
   take_money=rand(1 .. 40) 
-  puts "taking #{take_money}"
+  puts "taking #{take_money}..father has #{@@father_money}"
   @@father_money = @@father_money - take_money
 end
 
 class Child_Pedro < Father
   take_money=rand(1 .. 30) 
-  puts "taking #{take_money}"
+  puts "taking #{take_money}..father has #{@@father_money}" 
   @@father_money = @@father_money - take_money
 
 end
 
 class Child_Juan < Father
-  take_money=rand(1 .. 30) 
-  puts "taking #{take_money}"
+  take_money=rand(1 .. 30)
+  puts "taking #{take_money}..father has #{@@father_money}"	
   @@father_money = @@father_money - take_money
 
 end
