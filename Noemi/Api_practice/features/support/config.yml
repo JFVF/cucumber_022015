@@ -1,8 +1,8 @@
 # top level
 app:
   #options in level
-  admin_user: admin
-  admin_pass: admin123
+  admin_user: noemi4j7g@gmail.com
+  admin_pass: 20401588j.
   host: todo.ly
   port: 8090
   rootPath: /api
