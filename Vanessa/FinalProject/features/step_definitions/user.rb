@@ -1,32 +1,55 @@
+require File.dirname(__FILE__)+'/../support/lib/data_helper'
+
 Given(/^I want to create a new user$/) do
-  @point = $user_endpoint
+  # @point = $user_endpoint
 	# @http_connection = Rest_service.get_connection
 end
 
-When(/^I send a (PUT|POST) request to (.*?) with json$/) do |method, end_point, json_text|
- req =  YAML::load_file(File.dirname(__FILE__) + '/../support/requests/userRequest.yml')
-      # request_body = JSON(req['createUser'])
-      request_body = json_text
-      puts request_body
-      puts request_body.class
+When(/^I send a (PUT|POST) request to (?:update|create) a user with json$/) do |method, json_text|
+  # req =  YAML::load_file(File.dirname(__FILE__) + '/../support/requests/userRequest.yml')
+  # request_body = JSON(req['createUser'])
+  request_body = json_text
+  # puts request_body
+  # puts request_body.class
   @request_hash = JSON.parse(json_text)
+  puts 'JSON TEXT'
+  puts json_text
+  puts $user_endpoint
+  puts 'JSON TEXT'
   # @response = RestClient.post(@@endpoints,
-    begin
-  @user_expected = RestClient.post(@point,
-                  request_body,    
-                  {
-                    # :Authorization => 'Basic YWRtaW46Q29udHJvbDEyMw==',
-                   :content_type => 'application/json',
-                   :accept => 'application/json'})
-  @hash_expected = JSON.parse(@user_expected)
+  begin
+
+$auth   = Base64.encode64("vane.27.04@hotmail.com:5LPFT6")
+user_actual =  RestClient.get $user_endpoint, 
+  {:Authorization => "Basic #{$auth}"}
+  puts user_actual
+  puts '-----------------------------------'
+
+  # @user_expected = RestClient.post(
+  #   $user_endpoint,
+  #   request_body,
+  #   {
+  #   :content_type => 'application/json',
+  #   :accept => 'application/json'
+  #   })
+  # puts 'RESPONSE'
+  # puts @user_expected
+  # puts 'RESPONSE'
+
+  # @hash_expected = JSON.parse(@user_expected)
+
+  # puts 'HAAAASH'
+  # puts @hash_expected
+  # puts 'HAAAASH'
   rescue => e
     puts 'ENTER RESCUE'
     puts e.response
     puts 'ENTER RESCUE'
   end
+  # DataHelper.get_hash_with_keys(@hash_expected, @request_hash)
 end
 
-When /^I send a (GET) request to "(.*?)"$/ do |method, end_point|
+When(/^I send a (GET) request to "(.*?)"$/)do |method, end_point|
   	# http_request = Rest_service.get_request(method, end_point)
   	# @http_response = Rest_service.execute_request(@http_connection, http_request)
    # 	@last_json = @http_response.body
@@ -71,7 +94,7 @@ Then(/^I expect the user to be created$/) do
   expect(hash_actual['Id']).to eq(@hash_expected['Id'])
   expect(hash_actual['Email']).to eq(@hash_expected['Email'])
 
-  #   puts 'EXPECTED'
+  # puts 'EXPECTED'
   # puts json_text
   # puts json_text.class
   # puts 'EXPECTED'

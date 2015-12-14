@@ -3,7 +3,7 @@ require 'yaml'
 require 'rest-client'
 require 'json'
 require 'json_spec/cucumber' 
-require "base64"
+require 'base64'
 
 def find_config_file(filename)
   root = Pathname.pwd
