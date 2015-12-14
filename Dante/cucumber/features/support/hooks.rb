@@ -6,6 +6,6 @@ After do |scenario|
    if scenario.failed?
     puts  "Failed#{scenario.exception.message}" 
    else
-   	 puts " Bye Bye it Passed"
+   	 puts "The scenario passed"
   end
 end
