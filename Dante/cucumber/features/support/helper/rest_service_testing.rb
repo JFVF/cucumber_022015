@@ -34,4 +34,10 @@ def Rest_service.get_request(method, url)
     end
     request.basic_auth($app_user,$app_pass)
    return request
-  end
+end
+
+
+def Rest_service.execute_request(http_connection, http_request)
+    http_response = http_connection.request(http_request)
+    return http_response
+end
