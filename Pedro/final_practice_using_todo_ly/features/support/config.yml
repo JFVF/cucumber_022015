@@ -1,0 +1,8 @@
+# top level
+app:
+  #options in level
+  admin_user: pedro_571_david@hotmail.com	
+  admin_pass: Pilot571
+  host: todo.ly
+  port: 8090
+  rootPath: /api
