@@ -1,0 +1,5 @@
+createUser:
+    UserObject:
+        Email: 'user@email.com'
+        FullName: 'Joe Blow'
+        Password: 'pASswoRd'

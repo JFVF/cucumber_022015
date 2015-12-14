@@ -1,0 +1,2 @@
+user: "https://todo.ly/api/user.json"
+user_id: "https://todo.ly/api/user/[id].json"
