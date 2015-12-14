@@ -9,6 +9,8 @@ Scenario Outline: Fill user client
 	| 2001     | Juana      | $400      |
 	| 2002     | Maria     | $100      | 
 	| 2003     | Pedro     | $200      | 
+
+
 @outline
 Scenario Outline: search totalprice by name
  Given I have <NameClient> client 
@@ -18,9 +20,8 @@ Scenario Outline: search totalprice by name
 	| NameClient | ExpectePrice |
 	| Maria     | $100   |
 	| Soledad   | $0     |
-	| Juana      | $400   |
+	| Juana      | $400  |
 @normal
 Scenario: search totalprice if Pedro
  Given I have Pedro client 
    When I ask for TotalPrices
-   Then I should receive $200

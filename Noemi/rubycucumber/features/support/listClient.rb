@@ -17,8 +17,7 @@ class Registor
 		@h_p.inspect
 	end
 	def ask name_c
-		puts @h_u
-
+	
 		@name_to_ask= name_c.to_s
 		@price_cliente=0
 		if @h_u.has_value?(@name_to_ask)			
