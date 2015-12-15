@@ -5,18 +5,31 @@ module DataHelper
 		case ignore
 			when true
 			when false
-				puts 'HASH'
-				puts hash
-				puts 'HASH'
-				puts 'EXPECTED HASH'
-				puts hash_expected
-				puts 'EXPECTED HASH'
-				ary1 = hash.to_a
-				ary2 = hash_expected.to_a
-				puts 'INTERSECTION'
-				puts ary1 & ary2
+				keys_expected = hash.keys & hash_expected.keys
+				hash_created = Hash.new
+
+				hash.each_pair do |key, value|
+					keys_expected.each do |key_expected|
+						if key_expected == key
+							hash_created.store(key, value)
+						end
+					end
+				end
+
+				puts hash_created
+
+				# end
+
+
+				# puts ary1 & ary2
+				# puts '-----------------------'
+				hash_created
 			else
+				raise 'Unknown value'
 		end
+	end
+
+	def self.equal?(object_actual, object_expected)
 	end
 		
 end
