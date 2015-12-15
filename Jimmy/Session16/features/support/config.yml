@@ -1,0 +1,6 @@
+#options in level
+  admin_user: gordines@gmail.com
+  admin_pass: control123!@#
+  host: todo.ly
+  port: 8090
+  rootPath: /api

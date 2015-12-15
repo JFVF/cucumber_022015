@@ -1,3 +1,6 @@
+require 'pathname'
+require 'yaml'
+
 def find_config_file(filename)
   root = Pathname.pwd
   while not root.root?
@@ -9,4 +12,11 @@ def find_config_file(filename)
     root = root.parent
   end
   raise 'Configuration file ' #{filename}' not found!'
+end
+
+def load_app_config_file(filename)
+  config_file = find_config_file(filename)
+  config = YAML.load_file(config_file)
+  $app_context = config['app']['rootPath']
+  return config
 end
