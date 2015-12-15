@@ -12,8 +12,9 @@ When I send a POST request to create a user with json
 }
 """
 Then I expect HTTP code 200
-  And I expect to get that user
-  And I expect the gotten user is equal to the created user
+  And I expect the user to be created
+  # And I expect to get that user
+  # And I expect the gotten user is equal to the created user
 
 
  @get_request
@@ -49,13 +50,4 @@ Then I expect HTTP code 200
  Then I expect HTTP code 200
    And I expect to get the updated user
    And I expect the gotten user is updated
-
-# @delete_request
-# Scenario: Delete a user
-# Given I want to delete a user with username use123r@email.com and password pASswoRd
-# When I send a DELETE request to /user/[id].json
-# Then I expect HTTP code 200
-# 	And I expect the response's body has the user deleted
-
-
 

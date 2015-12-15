@@ -16,20 +16,10 @@ module DataHelper
 					end
 				end
 
-				puts hash_created
-
-				# end
-
-
-				# puts ary1 & ary2
-				# puts '-----------------------'
 				hash_created
 			else
 				raise 'Unknown value'
 		end
-	end
-
-	def self.equal?(object_actual, object_expected)
 	end
 		
 end
