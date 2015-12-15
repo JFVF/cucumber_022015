@@ -3,9 +3,10 @@ Given(/^a board like this:$/) do |table|
   puts "Given table before executing #{@board}"
 end
 
-When(/^player x plays in row (\d+), column (\d+)$/) do |row, col|
+When(/^player ([a-z]) plays in row (\d+), column (\d+)$/) do |player,row, col|
   row, col = row.to_i, col.to_i
-    @board[row][col] = 'x' ##modificar un argumento 
+    #@board[row][col] = 'x' #modificar un argumento 
+    @board[row][col] = player #modificar un argumento 
 
   puts "After changing the cell with x #{@board}"
 end
