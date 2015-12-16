@@ -30,6 +30,7 @@ module Rest_service
     end
 
     request.basic_auth($app_user,$app_pass)
+
    return request
   end
 
