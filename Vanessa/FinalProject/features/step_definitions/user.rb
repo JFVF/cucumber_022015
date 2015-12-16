@@ -1,109 +1,111 @@
 require File.dirname(__FILE__)+'/../support/lib/data_helper'
 
-Given(/^I want to create a new user$/) do
-  # @point = $user_endpoint
-	# @http_connection = Rest_service.get_connection
-end
-
 When(/^I send a (PUT|POST) request to (?:update|create) a user with json$/) do |method, json_text|
-  # req =  YAML::load_file(File.dirname(__FILE__) + '/../support/requests/userRequest.yml')
-  # request_body = JSON(req['createUser'])
-  request_body = json_text
-  # puts request_body
-  # puts request_body.class
-  @request_hash = JSON.parse(json_text)
-  puts 'JSON TEXT'
-  puts json_text
-  puts $user_endpoint
-  puts 'JSON TEXT'
-  # @response = RestClient.post(@@endpoints,
-  begin
+  if method == 'POST'
+    request_body = json_text
+    @request_hash = JSON.parse(json_text)
 
-$auth   = Base64.encode64("vane.27.04@hotmail.com:5LPFT6")
-user_actual =  RestClient.get $user_endpoint, 
-  {:Authorization => "Basic #{$auth}"}
-  puts user_actual
-  puts '-----------------------------------'
+    begin
+      @user_expected = RestClient.post($user_endpoint,
+                  request_body,    
+                  {
+                   :content_type => 'application/json',
+                   :accept => 'application/json'})
+      @hash_expected = JSON.parse(@user_expected)
+    rescue => e
+      puts e.response
+    end
+    $user_created_id = @hash_expected['Id']
+    $auth = Base64.encode64("#{@request_hash['Email']}:#{@request_hash['Password']}")
+  elsif method == 'PUT'
+    endpoint = $user_id_endpoint.gsub('[id]', $user_created_id.to_s)
+    @request_hash = JSON.parse(json_text)
 
-  # @user_expected = RestClient.post(
-  #   $user_endpoint,
-  #   request_body,
-  #   {
-  #   :content_type => 'application/json',
-  #   :accept => 'application/json'
-  #   })
-  # puts 'RESPONSE'
-  # puts @user_expected
-  # puts 'RESPONSE'
-
-  # @hash_expected = JSON.parse(@user_expected)
-
-  # puts 'HAAAASH'
-  # puts @hash_expected
-  # puts 'HAAAASH'
-  rescue => e
-    puts 'ENTER RESCUE'
-    puts e.response
-    puts 'ENTER RESCUE'
+    request_body = @hash_actual.merge(@request_hash)
+    begin
+      @user_expected = RestClient.put(endpoint,
+                                       JSON(request_body),
+                                       {
+                                          :Authorization => "Basic #{$auth}",
+                                           :content_type => 'application/json',
+                                           :accept => 'application/json'})
+      @hash_expected = JSON.parse(@user_expected)
+    rescue => e
+      puts e.response
+    end
   end
-  # DataHelper.get_hash_with_keys(@hash_expected, @request_hash)
 end
 
-When(/^I send a (GET) request to "(.*?)"$/)do |method, end_point|
-  	# http_request = Rest_service.get_request(method, end_point)
-  	# @http_response = Rest_service.execute_request(@http_connection, http_request)
-   # 	@last_json = @http_response.body
+When(/^I send a GET request to (.*?)$/)do |end_point|
+  $auth = Base64.encode64("#{@request_hash['Email']}:#{@request_hash['Password']}")
+  @user_expected =  RestClient.get(
+    $user_endpoint,
+    {:Authorization => "Basic #{$auth}"})
+  
+  @hash_expected = JSON.parse(@user_expected)
 end
 
 Then(/^I expect HTTP code (\d+)$/) do |http_code|
-  # puts 'code'
-  # puts @response.code
-  # puts 'code'
-  # expect(@response.code).to eql(http_code.to_i)
 	expect(@user_expected.code).to eql(http_code.to_i)
-
-  
 end
 
-Then(/^I expect the user to be created$/) do
-  # puts a = "#{@request_hash['Email']}:#{@request_hash['Password']}"
-  # puts a = "#{@hash_expected['Email']}:#{@hash_expected['Password']}"
-  # puts b = "#{@hash_expected['Password']}"
+Then(/^I expect to get that user$/) do
   $auth   = Base64.encode64("#{@request_hash['Email']}:#{@request_hash['Password']}")
-  puts 'AUTH'
-  puts $auth
-  puts 'AUTH'
-  user_actual =  RestClient.get @point, 
-  {:Authorization => "Basic #{$auth}"}
-  # {:Authorization => "Basic dXNlMTIzckBlbWFpbC5jb206cEFTc3dvUmQ="}
+  user_actual =  RestClient.get $user_endpoint,
+                                {:Authorization => "Basic #{$auth}"}
 
-  hash_actual = JSON.parse(user_actual)
-
-  puts 'EXPECTED'
-  puts @hash_expected
-  puts @hash_expected.class
-  puts 'EXPECTED'
-  puts '----------'
-  puts 'ACTUAL'
-  puts hash_actual
-  puts hash_actual.class
-  puts 'ACTUAL'
-
-  $user_created_id = hash_actual['Id']
-
-  expect(hash_actual['Id']).to eq(@hash_expected['Id'])
-  expect(hash_actual['Email']).to eq(@hash_expected['Email'])
-
-  # puts 'EXPECTED'
-  # puts json_text
-  # puts json_text.class
-  # puts 'EXPECTED'
-  # puts '----------'
-  # puts 'ACTUAL'
-  # puts @response.body
-  # puts @response.body.class
-  # puts 'ACTUAL'
-
-  # expect(@last_json).to be_json_eql json_text
-	# expect(@response.body).to be_json_eql json_text
+  @hash_actual = JSON.parse(user_actual)
 end
+
+Then(/^I expect to get the updated user$/) do
+  user_actual =  RestClient.get $user_endpoint,
+                                {:Authorization => "Basic #{$auth}"}
+
+  @hash_actual = JSON.parse(user_actual)
+end
+
+Then(/^I expect the gotten user is equal to the created user$/) do
+  $user_created_id = @hash_actual['Id']
+
+  expect(JSON(@hash_expected)).to be_json_eql JSON(@hash_actual)
+end
+
+
+Given(/^The user with json exists$/) do |json_text|
+  request_body = json_text
+  @request_hash = JSON.parse(json_text)
+  begin
+    user_actual = RestClient.post(
+      $user_endpoint,
+      request_body,
+     {
+      :content_type => 'application/json',
+      :accept => 'application/json'})
+
+    @hash_actual = JSON.parse(user_actual)
+    $user_created_id = @hash_actual['Id']
+
+  rescue => e
+    puts e.response
+  end
+
+  $auth   = Base64.encode64("#{@request_hash['Email']}:#{@request_hash['Password']}")
+end
+
+Then(/^I expect the retrieved user is equal to the user that already existed$/) do
+  expect(JSON(@hash_expected)).to be_json_eql JSON(@hash_actual)
+end
+
+
+When(/^I expect the gotten user is updated$/) do
+  expect(JSON(@hash_expected)).to be_json_eql JSON(@hash_actual)
+end
+
+Then(/^I expect the user to be created$/) do 
+  hash = DataHelper.get_hash_with_keys(@hash_expected, @request_hash)
+  expect(JSON(@request_hash)).to be_json_eql JSON(hash)
+end
+
+
+
+
