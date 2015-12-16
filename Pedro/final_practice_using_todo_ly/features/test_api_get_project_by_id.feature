@@ -1,4 +1,4 @@
-@api_test
+@api_test_1
 Feature: Test API get project by id
 
 Scenario: Get project by id

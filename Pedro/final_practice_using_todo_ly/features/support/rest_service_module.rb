@@ -2,7 +2,7 @@ require 'net/http'
 
 module Rest_service
 
-  HTTP_TIMEOUT_FOR_RESPONSE = 180
+  HTTP_TIMEOUT_FOR_RESPONSE = 1000
   
   #
   # This method set up a connection 
@@ -28,6 +28,7 @@ module Rest_service
       when "GET"
         request = Net::HTTP::Get.new(url)
     end
+
     request.basic_auth($app_user,$app_pass)
    return request
   end
