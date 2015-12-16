@@ -12,7 +12,7 @@ def find_config_file(filename) ## buscando el archivo en el path
     end
     root = root.parent
   end
-  raise 'Configuration file ' #{filename}' not found!'
+  raise 'Configuration file' #{filename}' not found!'
 end
 
 
@@ -26,7 +26,7 @@ end
 ###definiendo after configuration
 AfterConfiguration do |config|
   # read config file
-  configuration = load_app_config_file('env.yml')
+  configuration = load_app_config_file('config.yml')
   # Load application configuration parameters
   $app_user = configuration['app']['admin_user']
   $app_pass = configuration['app']['admin_pass']
