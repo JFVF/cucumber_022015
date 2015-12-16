@@ -1,0 +1,8 @@
+# top level
+app:
+  #options in level
+  admin_user: chelo.fm@gmail.com
+  admin_pass: TControl123
+  host: todo.ly
+  port: 8090
+  rootPath: /api/
