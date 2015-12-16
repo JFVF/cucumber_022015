@@ -13,9 +13,6 @@ When I send a POST request to create a user with json
 """
 Then I expect HTTP code 200
   And I expect the user to be created
-  # And I expect to get that user
-  # And I expect the gotten user is equal to the created user
-
 
  @get_request
  Scenario: Retrieve a user

@@ -1,5 +1,0 @@
-createUser:
-    UserObject:
-        Email: 'use123r@email.com'
-        FullName: 'Joe Blow'
-        Password: 'pASswoRd'
