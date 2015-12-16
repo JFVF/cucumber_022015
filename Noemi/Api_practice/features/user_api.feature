@@ -1,7 +1,7 @@
 @api_test
 Feature: Test API create user
 
-Scenario:
+Scenario: add user
 
 Given I have set a connection to "todo.ly" service
 When I send a POST request to /user.json with json

@@ -4,8 +4,8 @@ end
 
 After do |scenario|
    if scenario.failed?
-    puts  "Faile#{scenario.exception.message}" 
+    puts  ":( Faile#{scenario.exception.message}" 
    else
-   	 puts " Bye Bye it Passed"
+   	 puts "Bye it Passed :)"
   end
 end
