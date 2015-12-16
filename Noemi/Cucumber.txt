@@ -1,0 +1,56 @@
+CUCUMBER
+
+$ cucumber test.feature --dry-run
+Cucumber --init 
+
+
+cucumber –f html –o test_report.html <feature_file>
+
+e.g.
+cucumber –f html –o test_report.html –t @tag
+AND
+cucumber –f html –o test_report.html –t @tag –t @tag_1
+OR
+cucumber –f html –o test_report.html –t @tag,@tag_1
+NOT
+cucumber –f html –o test_report.html –t @tag –t ~@tag_1
+
+expect(some_result).to include(value)
+
+expect(@some).to be true
+expect(@some).to be false
+expect(@some).to be nil
+expect(@some).to be < expected
+expect(@some).to be > expected
+expect(@some).to be <= expected
+expect(@some).to be >= expected
+
+
+expect(some_result).to eq(some_expected)
+expect(some_result).to_not eq(some_expected)
+expect(some_result).to include(value)
+expect(some_result).to_not include(value)
+expect(some).to eq("value_1").or eq("value_2").or eq("value_3")
+expect(some).to start_with("value_1").or end_with("value_2")# the same for .and
+
+For OR tags, pass the tags in a single string comma separated:
+
+Before('@some, @any') do
+  # This will only run before scenarios tagged
+  # with @some  OR @any.
+end
+For AND tags, pass the tags as separate tag strings:
+Before('@some', '@any') do
+  # This will only run before scenarios tagged
+  # with @some AND @any.
+end
+
+Negative :
+Before('@some', '~@any') do
+  # This will only run before scenarios tagged
+  # with @some AND NOT @any.
+end
+Before('@any, @some', '@other') do
+  # This will only run before scenarios tagged
+  # with (@any OR @some) AND @other 
+end
