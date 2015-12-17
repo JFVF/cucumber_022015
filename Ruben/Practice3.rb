@@ -45,6 +45,7 @@ puts "type destination city"
 destination = gets.chomp.to_s
 puts "type ticket price"
 price = gets.chomp.to_f
+
 def getPassengerInformation(passengerName = "", destinationCity = "", ticketPrice = 0.0)
 dolarValue = 6.97
 	if destinationCity.length == 0

@@ -23,3 +23,9 @@ person.name = "Ruben"
 person.age = 33
 puts person.calculateHours
 puts person.validateAge
+
+require 'singleton'
+class Base
+  include Singloton
+  def initialize
+end
