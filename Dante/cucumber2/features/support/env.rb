@@ -1,3 +1,4 @@
+require 'json_spec/cucumber' 
 require 'rspec/expectations'
 require 'pathname'
 require 'yaml'
