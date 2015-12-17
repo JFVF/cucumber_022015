@@ -1,0 +1,3 @@
+Report1. cucumber –f html –o report1.html -t @firstreport
+Report2. cucumber –f html –o report1.html -t @secondreport
+Both Reports. cucumber –f html –o report1.html -t @bothreports
