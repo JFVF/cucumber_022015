@@ -1,0 +1,1 @@
+$list_of_data = ['car', 'bike', 'airplane']
