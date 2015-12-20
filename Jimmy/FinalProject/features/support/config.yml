@@ -1,0 +1,8 @@
+app:
+ admin_user: gordines007@gmail.com
+ admin_pass: control123
+ host: www.pivotaltracker.com
+ port: 443
+ apiVersion: /v5
+ apiRoot: /services
+ apiToken: 8f63fbdecd0d46bbca203efb794bc914
