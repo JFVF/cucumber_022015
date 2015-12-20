@@ -17,6 +17,7 @@ end
 When /^I send a (POST|PUT) request to (.*)$/ do |method, end_point,body|
   http_request = Rest_service.get_request(method, end_point)
   http_request.body = body
+  
   @http_response = Rest_service.execute_request(@http_connection, http_request)
   @last_json = @http_response.body
 
