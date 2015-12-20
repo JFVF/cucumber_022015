@@ -26,4 +26,18 @@ Then I expect a json that contains the following
 @1.3
 Scenario: GET a Project
 Given I have set a connection to pivotal tracker service
-When I send a GET request to /projects/1439516
+	And I send a POST request to /projects
+	"""
+	{
+		"name":"NewProject"
+	}
+	"""
+When I send a GET request to /projects/{project_id}
+Then I expect HTTP code 200
+	And I expect a json that contains the following
+		"""
+		{
+			"name":"NewProject"
+		}
+		"""
+
